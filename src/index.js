@@ -9,6 +9,13 @@ module.exports = function getTimeForEducation(
     knowsProgramming = true,
     config = {family: 4}
     ) {
-      return 0;
+      const masterJavaScriptHours = 800;
+      const fullProgrammingHours = 500 + masterJavaScriptHours;
+      const userHours = knowsProgramming ? masterJavaScriptHours : fullProgrammingHours;
+      if(focus && config){
+        return Math.ceil(userHours / config[focus]);
+      }else{
+        throw new Error('Enter valid data!'); 
+      }
   };
   
